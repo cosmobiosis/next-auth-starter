@@ -11,7 +11,7 @@ import { db } from '@/lib/db';
 import { SignInSchema } from '@/schemas';
 import { getUserByEmail } from '@/data/user';
 import { signIn as authSignIn } from '@/auth/utils';
-import { DEFAULT_SIGNIN_REDIRECT } from '@/routes';
+import { DEFAULT_SIGNIN_REDIRECT } from '@/auth/routes';
 import { getTwoFactorTokenByEmail } from '@/data/two-factor-token';
 import { sendTwoFactorTokenEmail, sendVerificationEmail } from '@/lib/mail';
 import { getTwoFactorConfirmationByUserId } from '@/data/two-factor-confirmation';
