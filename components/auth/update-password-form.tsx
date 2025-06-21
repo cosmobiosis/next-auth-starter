@@ -20,8 +20,8 @@ import { Button } from '@/components/ui/button';
 import { UpdatePasswordSchema } from '@/schemas';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
-import { useCurrentUser } from '@/hooks/use-current-user';
-import { updatePassword } from '@/actions/update-password';
+import { useCurrentUser } from '@/auth/hooks/use-current-user';
+import { updatePassword } from '@/auth/actions/update-password';
 
 export default function UpdatePasswordForm() {
   const user = useCurrentUser();

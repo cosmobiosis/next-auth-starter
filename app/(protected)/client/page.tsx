@@ -3,7 +3,7 @@
 import { Computer } from 'lucide-react';
 
 import { UserInfo } from '@/components/user-info';
-import { useCurrentUser } from '@/hooks/use-current-user';
+import { useCurrentUser } from '@/auth/hooks/use-current-user';
 
 export default function ClientPage() {
   const user = useCurrentUser();

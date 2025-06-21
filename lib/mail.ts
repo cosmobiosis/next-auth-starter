@@ -1,8 +1,8 @@
 import { Resend } from 'resend';
 import nodemailer from 'nodemailer';
-import { PasswordReset } from '@/components/emails/password-reset';
-import { EmailVerification } from '@/components/emails/email-verification';
-import { TwoFactorAuthentication } from '@/components/emails/two-factor-authentication';
+import { PasswordReset } from '@/components/auth/emails/password-reset';
+import { EmailVerification } from '@/components/auth/emails/email-verification';
+import { TwoFactorAuthentication } from '@/components/auth/emails/two-factor-authentication';
 import { render } from '@react-email/render';
 
 

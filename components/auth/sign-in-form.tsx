@@ -17,7 +17,7 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { SignInSchema } from '@/schemas';
-import { signIn } from '@/actions/sign-in';
+import { signIn } from '@/auth/actions/sign-in';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { FormError } from '@/components/form-error';

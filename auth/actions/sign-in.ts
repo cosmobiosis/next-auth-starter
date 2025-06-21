@@ -10,7 +10,7 @@ import {
 import { db } from '@/lib/db';
 import { SignInSchema } from '@/schemas';
 import { getUserByEmail } from '@/data/user';
-import { signIn as authSignIn } from '@/auth';
+import { signIn as authSignIn } from '@/auth/utils';
 import { DEFAULT_SIGNIN_REDIRECT } from '@/routes';
 import { getTwoFactorTokenByEmail } from '@/data/two-factor-token';
 import { sendTwoFactorTokenEmail, sendVerificationEmail } from '@/lib/mail';

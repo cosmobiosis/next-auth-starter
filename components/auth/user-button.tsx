@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { useCurrentUser } from '@/hooks/use-current-user';
+import { useCurrentUser } from '@/auth/hooks/use-current-user';
 import { SignOutButton } from '@/components/auth/sign-out-button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 

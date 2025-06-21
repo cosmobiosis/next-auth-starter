@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { SessionProvider } from 'next-auth/react';
 
 import './globals.css';
-import { auth } from '@/auth';
+import { auth } from '@/auth/utils';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -19,20 +19,20 @@ export const metadata: Metadata = {
       ? `https://${process.env.VERCEL_URL}`
       : `http://localhost:${process.env.PORT || 3000}`
   ),
-  title: 'Auth — Next.js 14 Authentication Example',
+  title: 'Yeti',
   description:
-    'This is a complete authentication example app built with Next.js 14 and Auth.js using the latest server actions.',
+    '',
   openGraph: {
     url: '/',
-    title: 'Auth — Next.js 14 Authentication Example',
+    title: 'Yeti',
     description:
-      'This is a complete authentication example app built with Next.js 14 and Auth.js using the latest server actions.'
+      ''
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Auth — Next.js 14 Authentication Example',
+    title: 'Yeti',
     description:
-      'This is a complete authentication example app built with Next.js 14 and Auth.js using the latest server actions.'
+      ''
   }
 };
 
