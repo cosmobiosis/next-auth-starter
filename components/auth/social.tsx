@@ -8,7 +8,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useSearchParams } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import { DEFAULT_SIGNIN_REDIRECT } from '@/auth/routes';
+import { DEFAULT_SIGNIN_REDIRECT } from '@/routes';
 
 export function Social() {
   const searchParams = useSearchParams();
