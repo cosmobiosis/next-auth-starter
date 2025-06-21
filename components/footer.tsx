@@ -13,11 +13,11 @@ export function Footer() {
           asChild
         >
           <Link
-            href='https://www.salimi.my'
+            href=''
             target='_blank'
             rel='noopener noreferrer'
           >
-            Salimi
+            Yeti
           </Link>
         </Button>
         &copy; {new Date().getFullYear()}.

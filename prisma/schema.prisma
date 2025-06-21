@@ -3,9 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
 }
 
 enum UserRole {
@@ -14,31 +13,31 @@ enum UserRole {
 }
 
 model User {
-  id                      String                  @id @default(cuid())
+  id                      String   @id @default(cuid()) @map("_id")
   name                    String?
-  email                   String?                 @unique
+  email                   String?   @unique
   tempEmail               String?
   emailVerified           DateTime?
   image                   String?
   password                String?
-  role                    UserRole                @default(USER)
+  role                    UserRole  @default(USER)
   accounts                Account[]
-  isTwoFactorEnabled      Boolean                 @default(false)
+  isTwoFactorEnabled      Boolean   @default(false)
   twoFactorConfirmation   TwoFactorConfirmation?
 }
 
 model Account {
-  id                 String   @id @default(cuid())
+  id                 String   @id @default(cuid()) @map("_id")
   userId             String
   type               String
   provider           String
   providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
+  refresh_token      String?
+  access_token       String?
   expires_at         Int?
   token_type         String?
   scope              String?
-  id_token           String?  @db.Text
+  id_token           String?
   session_state      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -47,37 +46,37 @@ model Account {
 }
 
 model VerificationToken {
-  id              String    @id @default(cuid())
+  id              String   @id @default(cuid()) @map("_id")
   userId          String
-  token           String    @unique
-  isUpdateEmail   Boolean   @default(false)
+  token           String   @unique
+  isUpdateEmail   Boolean  @default(false)
   expires         DateTime
 
   @@unique([userId, token])
 }
 
 model PasswordResetToken {
-  id        String    @id @default(cuid())
+  id        String   @id @default(cuid()) @map("_id")
   email     String
-  token     String    @unique
+  token     String   @unique
   expires   DateTime
 
   @@unique([email, token])
 }
 
 model TwoFactorToken {
-  id        String    @id @default(cuid())
+  id        String   @id @default(cuid()) @map("_id")
   email     String
-  token     String    @unique
+  token     String   @unique
   expires   DateTime
 
   @@unique([email, token])
 }
 
 model TwoFactorConfirmation {
-  id      String  @id @default(cuid())
+  id      String   @id @default(cuid()) @map("_id")
   userId  String
-  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
 }

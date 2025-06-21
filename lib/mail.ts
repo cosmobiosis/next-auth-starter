@@ -1,12 +1,20 @@
 import { Resend } from 'resend';
-
+import nodemailer from 'nodemailer';
 import { PasswordReset } from '@/components/emails/password-reset';
 import { EmailVerification } from '@/components/emails/email-verification';
 import { TwoFactorAuthentication } from '@/components/emails/two-factor-authentication';
+import { render } from '@react-email/render';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
-const domain = process.env.AUTH_URL;
+const domain = process.env.NEXT_PUBLIC_AUTH_URL;
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,     // your@gmail.com
+    pass: process.env.GMAIL_APP_PASSWORD, // App-specific password
+  },
+});
 
 export async function sendVerificationEmail(
   name: string | null,
@@ -15,11 +23,13 @@ export async function sendVerificationEmail(
 ) {
   const verifyLink = `${domain}/auth/email-verification?token=${token}`;
 
-  await resend.emails.send({
-    from: 'Next Auth Starter <confirmation@auth.salimi.my>',
-    to: [email],
+  const html = await render(EmailVerification({ name, verifyLink }));
+
+  await transporter.sendMail({
+    from: `"Yeti" <${process.env.GMAIL_USER}>`,
+    to: email,
     subject: 'Email Verification',
-    react: EmailVerification({ name, verifyLink })
+    html,
   });
 }
 
@@ -30,11 +40,13 @@ export async function sendPasswordResetEmail(
 ) {
   const resetLink = `${domain}/auth/reset-password?token=${token}`;
 
-  await resend.emails.send({
-    from: 'Next Auth Starter <reset@auth.salimi.my>',
-    to: [email],
-    subject: 'Password Reset',
-    react: PasswordReset({ name, resetLink })
+  const html = await render(PasswordReset({ name, resetLink }));
+
+  await transporter.sendMail({
+    from: `"Yeti" <${process.env.GMAIL_USER}>`,
+    to: email,
+    subject: 'Email Verification',
+    html,
   });
 }
 
@@ -43,10 +55,12 @@ export async function sendTwoFactorTokenEmail(
   email: string,
   token: string
 ) {
-  await resend.emails.send({
-    from: 'Next Auth Starter <2fa@auth.salimi.my>',
-    to: [email],
-    subject: 'Two Factor Authentication Code',
-    react: TwoFactorAuthentication({ name, token })
+  const html = await render(TwoFactorAuthentication({ name, token }));
+
+  await transporter.sendMail({
+    from: `"Yeti" <${process.env.GMAIL_USER}>`,
+    to: email,
+    subject: 'Email Verification',
+    html,
   });
 }
