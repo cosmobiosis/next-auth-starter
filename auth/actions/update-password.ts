@@ -4,7 +4,7 @@ import * as z from 'zod';
 import bcrypt, { compare } from 'bcryptjs';
 
 import { db } from '@/lib/db';
-import { update } from '@/auth';
+import { update } from '@/auth/utils';
 import { getUserById } from '@/data/user';
 import { UpdatePasswordSchema } from '@/schemas';
 import { currentUser } from '@/lib/authentication';

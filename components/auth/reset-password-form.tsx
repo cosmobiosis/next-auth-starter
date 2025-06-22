@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 import { ResetPasswordSchema } from '@/schemas';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
-import { resetPassword } from '@/actions/reset-password';
+import { resetPassword } from '@/auth/actions/reset-password';
 import { CardWrapper } from '@/components/auth/card-wrapper';
 
 export function ResetPasswordForm() {

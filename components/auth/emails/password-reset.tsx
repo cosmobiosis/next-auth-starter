@@ -73,17 +73,17 @@ export function PasswordReset({ name, resetLink }: PasswordResetProps) {
 
             <Text className='text-gray-500 text-xs text-center mt-5'>
               <Link
-                href='https://github.com/salimi-my/next-auth-starter'
+                href=''
                 className='text-gray-500 font-semibold'
               >
-                Next Auth Starter
+                Yeti
               </Link>
               ・ Created by{' '}
               <Link
-                href='https://www.salimi.my'
+                href=''
                 className='underline text-gray-500 underline-offset-2'
               >
-                Salimi
+                Yeti
               </Link>
             </Text>
           </Container>

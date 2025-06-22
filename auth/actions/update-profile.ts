@@ -3,7 +3,7 @@
 import * as z from 'zod';
 
 import { db } from '@/lib/db';
-import { update } from '@/auth';
+import { update } from '@/auth/utils';
 import { UpdateProfileSchema } from '@/schemas';
 import { sendVerificationEmail } from '@/lib/mail';
 import { currentUser } from '@/lib/authentication';

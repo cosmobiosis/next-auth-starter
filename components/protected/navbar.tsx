@@ -45,7 +45,7 @@ export function Navbar() {
 
       <Link href='/server' className='flex items-center mr-8'>
         <ShieldCheck strokeWidth={2.5} className='mr-1 w-8 h-auto' />
-        <h1 className='text-2xl font-bold'>Auth</h1>
+        <h1 className='text-2xl font-bold'>Yeti</h1>
       </Link>
 
       <div className='hidden md:flex items-center space-x-6'>

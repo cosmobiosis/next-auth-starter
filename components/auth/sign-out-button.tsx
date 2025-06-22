@@ -1,6 +1,6 @@
 'use client';
 
-import { signOut } from '@/actions/sign-out';
+import { signOut } from '@/auth/actions/sign-out';
 
 interface SignOutButtonProps {
   children?: React.ReactNode;

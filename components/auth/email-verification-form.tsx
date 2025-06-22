@@ -7,7 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
 import { CardWrapper } from '@/components/auth/card-wrapper';
-import { emailVerification } from '@/actions/email-verification';
+import { emailVerification } from '@/auth/actions/email-verification';
 
 export function EmailVerificationForm() {
   const submit = useRef(false);

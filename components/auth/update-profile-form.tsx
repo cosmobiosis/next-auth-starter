@@ -30,9 +30,9 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
-import { updateProfile } from '@/actions/update-profile';
-import { useCurrentUser } from '@/hooks/use-current-user';
-import { cancelNewEmail } from '@/actions/cancel-new-email';
+import { updateProfile } from '@/auth/actions/update-profile';
+import { useCurrentUser } from '@/auth/hooks/use-current-user';
+import { cancelNewEmail } from '@/auth/actions/cancel-new-email';
 
 export default function UpdateProfileForm() {
   const user = useCurrentUser();

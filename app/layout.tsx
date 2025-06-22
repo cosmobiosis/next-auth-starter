@@ -3,10 +3,9 @@ import { Inter } from 'next/font/google';
 import { SessionProvider } from 'next-auth/react';
 
 import './globals.css';
-import { auth } from '@/auth';
+import { auth } from '@/auth/utils';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/sonner';
-import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/mode-toggle';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,20 +18,20 @@ export const metadata: Metadata = {
       ? `https://${process.env.VERCEL_URL}`
       : `http://localhost:${process.env.PORT || 3000}`
   ),
-  title: 'Auth — Next.js 14 Authentication Example',
+  title: 'Yeti',
   description:
-    'This is a complete authentication example app built with Next.js 14 and Auth.js using the latest server actions.',
+    '',
   openGraph: {
     url: '/',
-    title: 'Auth — Next.js 14 Authentication Example',
+    title: 'Yeti',
     description:
-      'This is a complete authentication example app built with Next.js 14 and Auth.js using the latest server actions.'
+      ''
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Auth — Next.js 14 Authentication Example',
+    title: 'Yeti',
     description:
-      'This is a complete authentication example app built with Next.js 14 and Auth.js using the latest server actions.'
+      ''
   }
 };
 
@@ -46,14 +45,15 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang='en' suppressHydrationWarning>
-        <body className={cn('relative', inter.className)}>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-            <div className='w-full flex justify-end pt-4 pr-4'>
-              <ModeToggle />
-            </div>
+      <body 
+        className='font-clash antialiased bg-gradient-to-br from-[#eaf6ff] via-[#ffeedd] to-[#ffd9a0]
+          bg-[length:200%_200%] animate-gradient-slow
+          backdrop-blur-xl bg-white/30
+          border border-white/20'>
+        <div className=''>
             {children}
-          </ThemeProvider>
           <Toaster />
+        </div>
         </body>
       </html>
     </SessionProvider>
