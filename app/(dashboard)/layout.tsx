@@ -50,12 +50,14 @@ export default function Layout({
         </header> */}
         <div
           className="
-            min-h-screen
+            h-screen
             bg-gradient-to-br from-[#eaf6ff] via-[#ffeedd] to-[#ffd9a0]
             bg-[length:200%_200%] animate-gradient-slow
             backdrop-blur-xl bg-white/30
             border border-white/20
             rounded-2xl
+            overflow-y-scroll
+            flex flex-col
           "
         >
           {children}
