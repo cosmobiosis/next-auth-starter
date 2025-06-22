@@ -45,9 +45,15 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang='en' suppressHydrationWarning>
-        <body className='font-clash antialiased'>
+      <body 
+        className='font-clash antialiased bg-gradient-to-br from-[#eaf6ff] via-[#ffeedd] to-[#ffd9a0]
+          bg-[length:200%_200%] animate-gradient-slow
+          backdrop-blur-xl bg-white/30
+          border border-white/20'>
+        <div className=''>
             {children}
           <Toaster />
+        </div>
         </body>
       </html>
     </SessionProvider>
